@@ -1,15 +1,10 @@
 import React, { useContext } from "react";
-
 import { DContext } from "../context/Datacontext";
 
 const Navbar = () => {
 
   const apiurl = process.env.REACT_APP_API_URL;
   const { Auth } = useContext(DContext);
-
-
-
-  console.log("Auth By navbar:", Auth);
 
   const handleLogout = async () => {
     try {
@@ -34,12 +29,12 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
         {/* Logo */}
         <a href="/" className="text-xl font-bold text-primary text-black">
-         Water Testing
+         Water usage monitoring
         </a>
 
         {/* Auth Button */}
         <button
-          onClick={()=>Auth?handleLogout():window.location.href="/login"}
+          onClick={handleLogout}
           className={`px-4 py-2 text-white rounded-md transition-all ${
             Auth ? "bg-red-500 hover:bg-red-600" : "bg-black hover:bg-slate-800"
           }`}
