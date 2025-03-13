@@ -20,7 +20,7 @@ const App = () => {
       <Navbar/>
 
       <Routes>
-        <Route path="/" element={Auth?.role === 'admin' ? <AdminDashborad/> : <Login/> }></Route>
+        <Route path="/" element={Auth?.role === 'admin' ? <AdminDashborad/> : Auth?.role === 'user' ? <AdminDashborad/> :  <Login/> }></Route>
         <Route path='/CreateUser' element={Auth?.role === 'admin' ? <CreateUser/> : <Login/>}></Route>
         <Route path="/user/:id" element={Auth?.role === 'admin' ? <WaterLimit/> : <Login/>}></Route>
         
