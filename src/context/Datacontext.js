@@ -4,7 +4,7 @@ export const DContext = createContext()
 function Datacontext(props) {
   const apiurl = process.env.REACT_APP_API_URL;
 
-  const [Auth, setAuth] = useState(null)
+  const [Auth, setAuth] = useState(false)
   const [User, setUser] = useState(null)
   const [Buses, setBuses] = useState([]);
   const [thinkSpeakData, setThinkSpeakData] = useState(null)

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { DContext } from '../../context/Datacontext'
 import LiveChart from '../Livedata/LiveChart'
+import Loading from '../Loading'
 
 const UsersData = () => {
 
@@ -50,7 +51,7 @@ const controls = {
       }
 
       if(!lastUserData[id-2]){
-        return <div>No Data available!</div>
+        return <div><Loading/></div>
       }
 
     return (
@@ -61,7 +62,7 @@ const controls = {
             <span className="font-semibold text-gray-900">Usage:</span> {lastUserData[id-2].usage}
           </li>
           <li className="text-gray-700 text-base">
-            <span className="font-semibold text-gray-900">Updated At:</span> {lastUserData[id-2].updatedAt}
+            <span className="font-semibold text-gray-900">Updated At:</span> {new Date(lastUserData[id - 2].updatedAt).toLocaleString()}
           </li>
         </ul>
 

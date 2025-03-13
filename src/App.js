@@ -7,12 +7,17 @@ import {Login} from '../src/components/createAccount/Login'
 import Navbar from "./components/Navbar";
 import AdminDashborad from "./components/Admin.js/AdminDashborad";
 import UsersData from "./components/Admin.js/UsersData";
+import SimpleLoading from "./components/SimpleLoading";
 
 
 
 
 const App = () => {
   const {Auth}=useContext(DContext)
+
+  if(Auth && Auth === false){
+    return <div><SimpleLoading/></div>
+  }
   return (
 
     <div className="container-fluid p-0">
