@@ -28,7 +28,7 @@ const AdminDashboard = () => {
         autoSelected: "zoom",
     };
 
-    const apiKey = "8X0VTW5CSUSHMVWA";
+
 
 
     // Allow admin to update the water limit. This also sends an update request to ThingSpeak.
@@ -38,7 +38,8 @@ const AdminDashboard = () => {
             return;
         }
         try {
-            const response = await fetch(`https://api.thingspeak.com/update?api_key=${apiKey}&field1=${waterLiter}`, {
+           
+            const response = await fetch(`https://api.thingspeak.com/update?api_key=MZX81GTXD8M9V40P&field1=${waterLiter}`, {
                 method: "GET",
             });
             const data = await response.text();
@@ -78,7 +79,7 @@ const AdminDashboard = () => {
     // Fetch ThingSpeak data. Use field1 as the water limit and fields 2-5 for water usage.
     const fetchThingSpeakData = async () => {
         try {
-            const response = await fetch('https://api.thingspeak.com/channels/2875356/feeds.json?api_key=87KKZ5Z6QRV2ZMVG');
+            const response = await fetch('https://api.thingspeak.com/channels/2883850/feeds.json?api_key=0QE05COK0Z2XRWHK');
             const data = await response.json();
            
 
@@ -161,7 +162,10 @@ const AdminDashboard = () => {
                                     return <tr key={index}>
                                         <td className="border p-2 text-center">{index}</td>
                                         <td className="border p-2">{item.id}</td>
-                                        <td className="border p-2">{lastUserData[index-1].usage}</td>
+                                        <td className="border p-2">
+  {index > 0 && lastUserData[index - 1] ? lastUserData[index - 1].usage : "N/A"}
+</td>
+
                                         <td className="border p-2">{item.email}</td>
                                         <td className="border p-2 text-center">
                                             <button

@@ -90,7 +90,7 @@ const [lastUserData,setLastUserData]=useState(null)
   // Fetch ThingSpeak data. Use field1 as the water limit and fields 2-5 for water usage.
   const fetchThingSpeakData = async () => {
     try {
-      const response = await fetch('https://api.thingspeak.com/channels/2875356/feeds.json?api_key=87KKZ5Z6QRV2ZMVG');
+      const response = await fetch('https://api.thingspeak.com/channels/2883850/feeds.json?api_key=0QE05COK0Z2XRWHK');
       const data = await response.json();
       const feeds = data.feeds;
       setThinkSpeakData(feeds)
