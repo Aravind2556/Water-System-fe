@@ -165,8 +165,8 @@ const UsersData = () => {
 
         {/* Footer */}
         <View style={styles.footer}>
-          <Text>Thank you for using our water service!</Text>
-          <Text>For any inquiries, contact support@waterservice.com</Text>
+          <Text>This is Computer Generated Bill</Text>
+       
         </View>
       </Page>
     </Document>
