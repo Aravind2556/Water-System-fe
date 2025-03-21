@@ -12,7 +12,7 @@ const AdminDashboard = () => {
     const [showChart, setShowChart] = useState(false);
     const [waterUsage, setwaterUsage] = useState(null)
     const navigate = useNavigate();
-    console.log("think speak datas", graphData)
+  
 
 
     const controls = {
@@ -102,6 +102,9 @@ const AdminDashboard = () => {
         setwaterUsage(graphData[index])
     };
 
+
+    const pricePerLiter = 10; // Set price per liter
+
     if(!lastUserData){
         return <div>Loading....</div>
     }
@@ -151,6 +154,8 @@ const AdminDashboard = () => {
                             <th className="border p-2">S.No</th>
                             <th className="border p-2">User ID</th>
                             <th className="border p-2">Water Usage (Liters)</th>
+                            <th className='border p-2'>price</th>
+                           
                             <th className="border p-2">Email</th>
                             <th className="border p-2">Action</th>
                         </tr>
@@ -165,6 +170,10 @@ const AdminDashboard = () => {
                                         <td className="border p-2">
   {index > 0 && lastUserData[index - 1] ? lastUserData[index - 1].usage : "N/A"}
 </td>
+<td className="border p-2">
+  {index > 0 && lastUserData[index - 1] ? `₹${(lastUserData[index - 1].usage * pricePerLiter).toFixed(2)}` : "N/A"}
+</td>
+
 
                                         <td className="border p-2">{item.email}</td>
                                         <td className="border p-2 text-center">
